@@ -1,6 +1,7 @@
 # Clair3-MP: variant calling using with sequencing data from multiple platforms
 
 Contact: Ruibang Luo, Huijing Yu
+
 Email: rbluo@cs.hku.hk, hjyu@cs.hku.hk
 
 ---
@@ -58,7 +59,9 @@ tar -zxvf clair3_trio_models.tar.gz -C ./models/clair3_trio_models
 :exclamation::exclamation::exclamation: **Important Note** :exclamation::exclamation::exclamation:
 
 When using ONT-Illumina, indicate PLATFORM_A as "ont" and PLATFORM_B as "ilmn";
+
 When using ONT-PacBio, indicate PLATFORM_A as "ont" and PLATFORM_B as "hifi";
+
 When using PacBio-Illumina, indicate PLATFORM_A as "hifi" and PLATFORM_B as "ilmn".
 ```bash
 # run clair3-mp
