@@ -1,10 +1,11 @@
-# Clair3-MP (Multi-Platform): variant calling using with sequencing data from multiple platforms
+# Clair3-MP: variant calling using with sequencing data from multiple platforms
+
 Contact: Ruibang Luo, Huijing Yu
 Email: rbluo@cs.hku.hk, hjyu@cs.hku.hk
 
 ---
 ## Introduction
-Thorough benchmarking studies for variant calling have revealed distinct advantages and weakness using sequencing data from different platforms. In addition, it has become more common to possess sequencing data from different platforms for a sample. Clair3-MP is a deep-learning based variant calling method that supports multi-platform data including ONT-Illumina, ONT-PacBio and PacBio-Illumina to facilitate research involving different data in variant calling. 
+Thorough benchmarking studies for variant calling have revealed distinct advantages and weakness using sequencing data from different platforms. In addition, it has become more common to possess sequencing data from different platforms for a sample. Clair3-MP(Multi-Platform) is a deep-learning based variant calling method that supports multi-platform data including ONT-Illumina, ONT-PacBio and PacBio-Illumina to facilitate research involving different data in variant calling. 
 
 Detailed descriptions of the software and results for Clair3-MP can be found here (a link to bioarchive).
 ## Installation
@@ -55,11 +56,12 @@ wget http://www.bio8.cs.hku.hk/clair3_trio/clair3_trio_models/clair3_trio_models
 tar -zxvf clair3_trio_models.tar.gz -C ./models/clair3_trio_models
 ```
 :exclamation::exclamation::exclamation: **Important Note** :exclamation::exclamation::exclamation:
+
 When using ONT-Illumina, indicate PLATFORM_A as "ont" and PLATFORM_B as "ilmn";
 When using ONT-PacBio, indicate PLATFORM_A as "ont" and PLATFORM_B as "hifi";
 When using PacBio-Illumina, indicate PLATFORM_A as "hifi" and PLATFORM_B as "ilmn".
 ```bash
-# run clair3-trio
+# run clair3-mp
 _INPUT_DIR="[YOUR_INPUT_FOLDER]"                                                        # e.g. ./input
 _BAM_PLATFORM_A=${_INPUT_DIR}/input_platform_A.bam   # replace your bam file generated from platform A
 _BAM_PLATFORM_B=${_INPUT_DIR}/input_platform_B.bam   # replace your bam file generated from platform B
