@@ -53,8 +53,10 @@ tar -zxvf clair3_models.tar.gz -C ./models/clair3_models
 
 # download Clair3-MP's pre-trained models
 mkdir -p models/clair3_mp_models
-wget http://www.bio8.cs.hku.hk/clair3_trio/clair3_trio_models/clair3_trio_models.tar.gz
-tar -zxvf clair3_trio_models.tar.gz -C ./models/clair3_trio_models
+#download the Clair3-MP models based on your sequencing data platforms 
+#(e.g., data from ONT and Illumina, download ont_ilmn)
+wget http://www.bio8.cs.hku.hk/clair3_mp/clair3_mp_models/ont_ilmn.tar.gz
+tar -zxvf ont_ilmn.tar.gz -C ./models/clair3_mp_models_ont_ilmn
 ```
 :exclamation::exclamation::exclamation: **Important Note** :exclamation::exclamation::exclamation:
 
@@ -92,4 +94,5 @@ _MODEL_DIR_C3MP="[Clair3-MP MODEL for platform A+B]"      #e.g. ./models/clair3_
 --model_path_clair3_trio=${_MODEL_DIR_C3MP} \
 --sample_name_c=${_SAMPLE_PLATFORM_A} \
 --sample_name_p1=${_SAMPLE_PLATFORM_B}
+--trio_model_prefix=variables \
 ```
