@@ -9,6 +9,16 @@ Email: rbluo@cs.hku.hk, hjyu@cs.hku.hk
 Thorough benchmarking studies for variant calling have revealed distinct advantages and weakness using sequencing data from different platforms. In addition, it has become more common to possess sequencing data from different platforms for a sample. Clair3-MP(Multi-Platform) is a deep-learning based variant calling method that supports multi-platform data including ONT-Illumina, ONT-PacBio and PacBio-Illumina to facilitate research involving different data in variant calling. 
 
 Detailed descriptions of the software and results for Clair3-MP can be found here (a link to bioarchive).
+
+----
+
+## Contents
+
+* [Introduction](#introduction)
+* [Installation](#installation)
+* [Analysis Results](http://www.bio8.cs.hku.hk/clair3_mp/results/)
+---
+
 ## Installation
 **Anaconda install**:
 
@@ -93,6 +103,6 @@ _MODEL_DIR_C3MP="[Clair3-MP MODEL for platform A+B]"      #e.g. ./models/clair3_
 --model_path_clair3_p1=${_MODEL_DIR_C3_PLATFORM_B} \
 --model_path_clair3_trio=${_MODEL_DIR_C3MP} \
 --sample_name_c=${_SAMPLE_PLATFORM_A} \
---sample_name_p1=${_SAMPLE_PLATFORM_B}
---trio_model_prefix=variables \
+--sample_name_p1=${_SAMPLE_PLATFORM_B} \
+--trio_model_prefix=variables 
 ```
