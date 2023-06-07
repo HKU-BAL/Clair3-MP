@@ -66,7 +66,7 @@ mkdir -p models/clair3_mp_models
 #download the Clair3-MP models based on your sequencing data platforms 
 #(e.g., data from ONT and Illumina, download ont_ilmn)
 wget http://www.bio8.cs.hku.hk/clair3_mp/clair3_mp_models/ont_ilmn.tar.gz
-tar -zxvf ont_ilmn.tar.gz -C ./models/clair3_mp_models_ont_ilmn
+tar -zxvf ont_ilmn.tar.gz -C ./models/clair3_mp_models
 ```
 :exclamation::exclamation::exclamation: **Important Note** :exclamation::exclamation::exclamation:
 
