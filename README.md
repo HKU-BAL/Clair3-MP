@@ -8,7 +8,7 @@ Email: rbluo@cs.hku.hk, hjyu@cs.hku.hk
 ## Introduction
 Thorough benchmarking studies for variant calling have revealed distinct advantages and weakness using sequencing data from different platforms. In addition, it has become more common to possess sequencing data from different platforms for a sample. Clair3-MP(Multi-Platform) is a deep-learning based variant calling method that supports multi-platform data including ONT-Illumina, ONT-PacBio and PacBio-Illumina to facilitate research involving different data in variant calling. 
 
-Detailed descriptions of the software and results for Clair3-MP can be found here (a link to bioarchive).
+Detailed descriptions of the software and results for Clair3-MP can be found [here](https://www.biorxiv.org/content/10.1101/2023.05.31.543184v1).
 
 ----
 
