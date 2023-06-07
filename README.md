@@ -63,10 +63,10 @@ tar -zxvf clair3_models.tar.gz -C ./models/clair3_models
 
 # download Clair3-MP's pre-trained models
 mkdir -p models/clair3_mp_models
-#download the Clair3-MP models based on your sequencing data platforms 
-#(e.g., data from ONT and Illumina, download ont_ilmn)
-wget http://www.bio8.cs.hku.hk/clair3_mp/clair3_mp_models/ont_ilmn.tar.gz
-tar -zxvf ont_ilmn.tar.gz -C ./models/clair3_mp_models_ont_ilmn
+# download the Clair3-MP models based on your sequencing data platforms 
+# please use the correct clair3-mp models for specific platforms: ont_ilmn, ont_pb, pb_ilmn
+wget http://www.bio8.cs.hku.hk/clair3_mp/clair3_mp_models/clair3_mp_models.tar.gz
+tar -zxvf clair3_mp_models.tar.gz -C ./models/clair3_mp_models
 ```
 :exclamation::exclamation::exclamation: **Important Note** :exclamation::exclamation::exclamation:
 
@@ -75,6 +75,7 @@ When using ONT-Illumina, indicate PLATFORM_A as "ont" and PLATFORM_B as "ilmn";
 When using ONT-PacBio, indicate PLATFORM_A as "ont" and PLATFORM_B as "hifi";
 
 When using PacBio-Illumina, indicate PLATFORM_A as "hifi" and PLATFORM_B as "ilmn".
+ 
 ```bash
 # run clair3-mp
 _INPUT_DIR="[YOUR_INPUT_FOLDER]"                                                        # e.g. ./input
@@ -87,9 +88,9 @@ _SAMPLE_PLATFORM_B="[sample ID+Platform B name]"                                
 _REF=${_INPUT_DIR}/ref.fa                                       # replace your reference file name here
 _OUTPUT_DIR="[YOUR_OUTPUT_FOLDER]"                                                      # e.g. ./output
 _THREADS="[MAXIMUM_THREADS]"                                                                   # e.g. 8
-_MODEL_DIR_C3_PLATFORM_A="[Clair3 MODEL NAME for platform A data]"    # e.g. ./models/clair3_models/ont
+_MODEL_DIR_C3_PLATFORM_A="[Clair3 MODEL NAME for platform A data]"    # e.g. ./models/clair3_models/ont_guppy5
 _MODEL_DIR_C3_PLATFORM_B="[Clair3 MODEL NAME for platform B data]"   # e.g. ./models/clair3_models/ilmn
-_MODEL_DIR_C3MP="[Clair3-MP MODEL for platform A+B]"      #e.g. ./models/clair3_mp_models/c3mp_ont_ilmn
+_MODEL_DIR_C3MP="[Clair3-MP MODEL for platform A+B]"      #e.g. ./models/clair3_mp_models/${_PLATFORM_A}_${_PLATFORM_B}
 
 ./run_clair3_mp.sh \
 --bam_fn_c=${_BAM_PLATFORM_A} \
