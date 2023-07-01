@@ -1,2 +1,7 @@
 30x_ont_ilmn_git.log
 run_30x_ont_ilmn.sh
+*/__pycache__/*
+*.pyc
+models/
+*.tar.gz
+*.swp
