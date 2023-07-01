@@ -45,21 +45,6 @@ mp_scripts_folder = [
     'CheckEnvs_Dual',
     'MergeBin_Dual'
 ]
-#tri_scripts_folder = [
-#    'SelectHetSnp_Dual',
-#    'SelectCandidates_Trio',
-#    'Merge_Tensors_Dual',
-#    'Tensor2Bin_Dual',
-#    'Train_Dual',
-#    'Check_de_novo',
-#    'CallVariants_Dual',
-#    "CallVarBam_Trio",
-#    "CheckEnvs_Dual",
-#    'MergeTensorsBam_Trio',
-#    'SortVcf_Trio',
-#    'SelectHetSnp_Dual_no_ont_ind',
-#    'MergeBin_Dual'
-#]
 
 def directory_for(submodule_name):
     if submodule_name in deep_learning_folder:

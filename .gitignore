@@ -5,3 +5,5 @@ run_30x_ont_ilmn.sh
 models/
 *.tar.gz
 *.swp
+.nfs*
+*.swo
