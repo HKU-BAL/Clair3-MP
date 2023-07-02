@@ -1,13 +1,13 @@
-# Clair3-MP: variant calling using with sequencing data from multiple platforms
+# Clair3-MP: variant calling using sequencing data from multiple platforms
 
-Contact: Ruibang Luo, Huijing Yu
+Contact: Ruibang Luo, Junhao Su, Huijing Yu
 
-Email: rbluo@cs.hku.hk, hjyu@cs.hku.hk
+Email: rbluo@cs.hku.hk, jhsu@cs.hku.hk, hjyu@cs.hku.hk
 
 ---
 ## Introduction
 
-Clair3-MP (Multi-Platform) is a deep-learning based variant calling method that supports multi-platform data including ONT-Illumina, ONT-PacBio and PacBio-Illumina to facilitate research involving different data in variant calling. Clair3-MP features a neural network that supports multi-platform data and trains a series of new models, tailored to perform variant calling using different multi-platform data. In addition, Clair3-MP can incorporate reference genome stratification information by including a stratification channel in its input tensors. This channel encodes the platform preference into the neural network and enables better variant-calling performance for multi-platform data.
+Clair3-MP (Multi-Platform) is a deep-learning-based variant calling method that supports multi-platform data, including ONT-Illumina, ONT-PacBio, and PacBio-Illumina to facilitate research involving different data in variant calling. Clair3-MP features a neural network that supports multi-platform data and trains a series of new models tailored to perform variant calling using different multi-platform data. In addition, Clair3-MP can incorporate reference genome stratification information by including a stratification channel in its input tensors. This channel encodes the platform preference into the neural network and enables better variant-calling performance for multi-platform data.
 
 Detailed descriptions of the software and results for Clair3-MP can be found [here](https://www.biorxiv.org/content/10.1101/2023.05.31.543184v1).
 
@@ -28,7 +28,7 @@ Detailed descriptions of the software and results for Clair3-MP can be found [he
 
 A pre-built docker image is available [here](https://hub.docker.com/r/hkubal/clair3-mp). With it you can run Clair3-MP using a single command.
 
-Caution: Absolute path is needed for both `_BAM_PLATFORM_A/B`, `_REF` and `_OUTPUT_DIR`.
+Caution: Absolute path is needed for both `_BAM_PLATFORM_A/B`, `_REF`, and `_OUTPUT_DIR`.
 
 ```bash
 
