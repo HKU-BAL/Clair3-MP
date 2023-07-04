@@ -11,6 +11,25 @@ Clair3-MP (Multi-Platform) is a deep-learning-based variant calling method that 
 
 Detailed descriptions of the software and results for Clair3-MP can be found [here](https://www.biorxiv.org/content/10.1101/2023.05.31.543184v1).
 
+
+## What's New in Clair3-MP
+
+Cliar3-MP's features:
+
+- Clair3-MP is a research project to explore the performance using multiple platform datasets for variant calling, including Illumina, ONT, and PacBio;
+- We benchmarked Clair3-MP performance at different combinations of ONT, Illumina, and PacBio, and found that ONT + Illumina can improve variant calling at some configurations;
+- We also explored adding genomic regions information into the neural network and observed improvement at variant calling.
+
+
+What is expected from using Clair3-MP:
+
+- Clair3-MP could improve **SNP performance**, especially at **low-coverage** data for ONT + Illumina;
+  >  Clair3-MP improved SNP F1 score from 0.9681(Clair3, ONT) and 0.9353(Clair3, Illumina) to 0.9877(Clair3-MP, ONT+Illumina) at 10x data.
+- Clair3-MP has no improvement or has comparable at INDEL for ONT+Illumina and using PacBio data;
+- Clair3-MP can improve SNP and INDEL performance at some genomic regions, including large repeat regions, segmental duplication regions, etc.
+
+More information is available in our [preprint](https://www.biorxiv.org/content/10.1101/2023.05.31.543184v1), and testing results are available in Supplementary Table S1 in preprint.
+  
 ----
 
 ## Contents
@@ -78,10 +97,53 @@ hkubal/clair3-mp:latest \
 ```
 
 
+### Option 2. Singularity
+**Caution**: Absolute path is needed for both `INPUT_DIR` and `OUTPUT_DIR`. 
+```
+_BAM_PLATFORM_A=$[ONT_BAM] #input bam
+_BAM_PLATFORM_B=$[ILMN_BAM]
+_REF="[REF file]"
+_OUTPUT_DIR="[OUTPUT DIR]"
+
+_PLATFORM_A="ont"
+_PLATFORM_B="ilmn"
+_SAMPLE_PLATFORM_A="XXX_ont" #sample name
+_SAMPLE_PLATFORM_B="XXX_ilmn"
+mkdir -p ${_OUTPUT_DIR}
+_THREADS=36
+
+# docker path
+_MODEL_DIR_C3_PLATFORM_A="ont_guppy5"   
+_MODEL_DIR_C3_PLATFORM_B="ilmn"    
+_MODEL_DIR_MP="ont_ilmn"   
 
 
+DIR_A="$(dirname "${_BAM_PLATFORM_A}")"
+DIR_B="$(dirname "${_BAM_PLATFORM_B}")"
+DIR_REF="$(dirname "${_REF}")"
 
-### Option 2. Anaconda install:
+singularity pull docker://hkubal/clair3-mp:latest
+
+singularity exec \
+-B ${DIR_A},${DIR_B},${DIR_REF},${_OUTPUT_DIR} \
+clair3-mp_latest.sif \
+/opt/bin/run_clair3_mp.sh \
+--bam_fn_c=${_BAM_PLATFORM_A} \
+--bam_fn_p1=${_BAM_PLATFORM_B} \
+--bam_fn_c_platform=${_PLATFORM_A} \
+--bam_fn_p1_platform=${_PLATFORM_B} \
+--output=${_OUTPUT_DIR} \
+--ref_fn=${_REF} \
+--threads=${_THREADS} \
+--model_path_clair3_c=/opt/models/clair3_models/${_MODEL_DIR_C3_PLATFORM_A} \
+--model_path_clair3_p1=/opt/models/clair3_models/${_MODEL_DIR_C3_PLATFORM_B} \
+--model_path_clair3_mp=/opt/models/clair3_mp_models/${_MODEL_DIR_MP} \
+--sample_name_c=${_SAMPLE_PLATFORM_A} \
+--sample_name_p1=${_SAMPLE_PLATFORM_B} \
+--ctg_name=chr20
+```
+
+### Option 3. Anaconda install:
 
 Please install anaconda using the official [guide](https://docs.anaconda.com/anaconda/install) or using the commands below:
 
@@ -132,7 +194,7 @@ tar -zxvf clair3_mp_models.tar.gz -C ./models/clair3_mp_models
 
 
 
-### Option 3, install via Docker Dockerfile
+### Option 4, install via Docker Dockerfile
 
 ```
 # clone Clair3-MP
