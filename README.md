@@ -14,7 +14,7 @@ Detailed descriptions of the software and results for Clair3-MP can be found [he
 
 ## What's New in Clair3-MP
 
-Cliar3-MP's features:
+Clair3-MP's features:
 
 - Clair3-MP is a research project to explore the performance using multiple platform datasets for variant calling, including Illumina, ONT, and PacBio;
 - We benchmarked Clair3-MP performance at different combinations of ONT, Illumina, and PacBio, and found that ONT + Illumina can improve variant calling at some configurations;
