@@ -112,7 +112,6 @@ _SAMPLE_PLATFORM_B="XXX_ilmn"
 mkdir -p ${_OUTPUT_DIR}
 _THREADS=36
 
-# docker path
 _MODEL_DIR_C3_PLATFORM_A="ont_guppy5"   
 _MODEL_DIR_C3_PLATFORM_B="ilmn"    
 _MODEL_DIR_MP="ont_ilmn"   
@@ -122,6 +121,11 @@ DIR_A="$(dirname "${_BAM_PLATFORM_A}")"
 DIR_B="$(dirname "${_BAM_PLATFORM_B}")"
 DIR_REF="$(dirname "${_REF}")"
 
+conda config --add channels defaults
+conda create -n singularity-env -c conda-forge singularity -y
+conda activate singularity-env
+
+# singularity pull docker pre-built image
 singularity pull docker://hkubal/clair3-mp:latest
 
 singularity exec \
