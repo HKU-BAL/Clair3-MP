@@ -28,7 +28,7 @@ What is expected from using Clair3-MP:
 - Clair3-MP has no improvement or has comparable performance at INDEL for ONT+Illumina and using PacBio data;
 - Clair3-MP can improve SNP and INDEL performance at some genomic regions, including large repeat regions, segmental duplication regions, etc.
 
-More information is available in our [preprint](https://www.biorxiv.org/content/10.1101/2023.05.31.543184v1), and testing results are available in Supplementary Table S1 in preprint.
+More information is available in our [preprint](https://www.biorxiv.org/content/10.1101/2023.05.31.543184v1), and testing results are available in Supplementary Table S1 in the preprint.
   
 ----
 
