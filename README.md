@@ -36,6 +36,7 @@ More information is available in our [preprint](https://www.biorxiv.org/content/
 
 * [Introduction](#introduction)
 * [Installation](#installation)
+* [Training Script](/training_scripts)
 * [Analysis Results](http://www.bio8.cs.hku.hk/clair3_mp/results/)
 ---
 
